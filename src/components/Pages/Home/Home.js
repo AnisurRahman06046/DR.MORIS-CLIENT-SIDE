@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ServicesCard from "../Shared/ServicesCard/ServicesCard";
 import Banner from "./HomePageComponents/Banner/Banner";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -19,9 +20,11 @@ const Home = () => {
         {services.map((service) => (
           <ServicesCard key={service._id} service={service}></ServicesCard>
         ))}
-        <button className="btn btn-success lg:btn-wide lg:mx-8 lg:my-8 lg:ml-[500px] sm:mx-4 sm:my-4 sm:btn-wide sm:ml-[200px]">
-          See More
-        </button>
+        <Link to="/services">
+          <button className="btn btn-success lg:btn-wide lg:mx-8 lg:my-8 lg:ml-[500px] sm:mx-4 sm:my-4 sm:btn-wide sm:ml-[200px]">
+            See More
+          </button>
+        </Link>
       </section>
     </div>
   );
