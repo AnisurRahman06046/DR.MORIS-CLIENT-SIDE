@@ -27,11 +27,14 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link>Item 1</Link>
+              <Link to="/">Home</Link>
             </li>
 
             <li>
-              <Link>Item 3</Link>
+              <Link to="/login">Log In</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
         </div>
@@ -45,6 +48,9 @@ const Header = () => {
 
           <li>
             <Link to="/login">Log In</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blog</Link>
           </li>
         </ul>
       </div>
