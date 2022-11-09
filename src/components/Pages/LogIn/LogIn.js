@@ -2,23 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LogIn = () => {
+  const handleLogIn = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    // const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = {
+      email: email,
+      password: password,
+    };
+    console.log(user);
+  };
   return (
     <div className="w-full max-w-md p-8 space-y-3 container mx-auto my-5 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form
+        onSubmit={handleLogIn}
         novalidate=""
         action=""
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label for="username" className="block dark:text-gray-400">
-            Username
+          <label for="email" className="block dark:text-gray-400">
+            Email
           </label>
           <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
+            type="email"
+            name="email"
+            placeholder="Email"
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
           />
         </div>
@@ -40,7 +52,7 @@ const LogIn = () => {
           </div> */}
         </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">
-          Sign in
+          Log In
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
@@ -81,7 +93,9 @@ const LogIn = () => {
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Don't have an account?
-        <Link className="underline dark:text-gray-100">Sign up</Link>
+        <Link to="/register" className="underline dark:text-gray-100">
+          Sign up
+        </Link>
       </p>
     </div>
   );
