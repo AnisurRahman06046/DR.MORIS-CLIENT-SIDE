@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const handleRegister = (event) => {
-    console.log("clicked");
+    // console.log("clicked");
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -15,6 +17,13 @@ const Register = () => {
       password: password,
     };
     console.log(user);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="w-full max-w-md p-8 space-y-3 container mx-auto my-5 rounded-xl dark:bg-gray-900 dark:text-gray-100">

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const LogIn = () => {
+  const { logIn } = useContext(AuthContext);
   const handleLogIn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,6 +15,12 @@ const LogIn = () => {
       password: password,
     };
     console.log(user);
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="w-full max-w-md p-8 space-y-3 container mx-auto my-5 rounded-xl dark:bg-gray-900 dark:text-gray-100">
