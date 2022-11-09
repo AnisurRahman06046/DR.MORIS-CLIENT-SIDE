@@ -6,8 +6,10 @@ import AddReview from "../../ReviewsSection/AddReview/AddReview/AddReview";
 import Reviews from "../../ReviewsSection/Reviews/Reviews/Reviews";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import useTitle from "../../../customhook/useTitle/useTitle";
 
 const ServiceDetails = () => {
+  useTitle("Service-Details");
   const service = useLoaderData();
   const { img, title, price, description, _id } = service;
   const { user } = useContext(AuthContext);

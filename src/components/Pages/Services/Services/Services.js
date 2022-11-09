@@ -2,7 +2,9 @@
 import ServicesCard from "../../Shared/ServicesCard/ServicesCard";
 
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../customhook/useTitle/useTitle";
 const Services = () => {
+  useTitle("Services");
   const services = useLoaderData();
   console.log(services);
   return (

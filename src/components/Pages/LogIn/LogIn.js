@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import useTitle from "../../customhook/useTitle/useTitle";
 
 const LogIn = () => {
+  useTitle("Log In");
   const { logIn, googleSignIn } = useContext(AuthContext);
   const handleLogIn = (event) => {
     event.preventDefault();

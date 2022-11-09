@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import ServicesCard from "../Shared/ServicesCard/ServicesCard";
 import Banner from "./HomePageComponents/Banner/Banner";
 import { Link } from "react-router-dom";
+import useTitle from "../../customhook/useTitle/useTitle";
 
 const Home = () => {
+  useTitle("Home");
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/home")

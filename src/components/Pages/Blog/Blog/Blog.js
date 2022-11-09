@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../../customhook/useTitle/useTitle";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <section className="dark:bg-purple-800 dark:text-gray-100">
       <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
