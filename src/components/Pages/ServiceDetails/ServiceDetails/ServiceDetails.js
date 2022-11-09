@@ -34,7 +34,7 @@ const ServiceDetails = () => {
         <div className="border-2 border-red-500">
           <h1>reviews</h1>
 
-          <AddReview></AddReview>
+          <AddReview service={service}></AddReview>
         </div>
       </section>
     </div>

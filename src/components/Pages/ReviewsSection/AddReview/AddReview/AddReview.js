@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../../contexts/AuthProvider/AuthProvider";
 
-const AddReview = () => {
+const AddReview = ({ service }) => {
+  const { user } = useContext(AuthContext);
+  console.log(service);
+  const { _id, title } = service;
+
+  const handleAddReview = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = user?.email || "unregistered";
+    const message = form.message.value;
+    const usersInfo = {
+      service: _id,
+      serviceName: title,
+      name: name,
+      Email: email,
+      Review: message,
+    };
+    console.log(usersInfo);
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(usersInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex flex-col items-center w-full">
@@ -13,8 +43,13 @@ const AddReview = () => {
         </div>
 
         <div className="flex flex-col w-full">
-          <form>
-            <input className="p-2 rounded-md" type="text" placeholder="Name" />
+          <form onSubmit={handleAddReview}>
+            <input
+              className="p-2 rounded-md"
+              name="name"
+              type="text"
+              placeholder="Name"
+            />
             <br />
             <input
               className="p-2 mt-3 mb-3 rounded-md"
@@ -22,6 +57,7 @@ const AddReview = () => {
               name="email"
               id=""
               placeholder="Email"
+              defaultValue={user?.email}
             />
             <br />
             <textarea
@@ -34,10 +70,7 @@ const AddReview = () => {
               cols="38"
               placeholder="Review..."
             ></textarea>
-            <button
-              type="button"
-              className="btn btn-wide rounded-md ml-8 bg-yellow-800 py-4 my-8"
-            >
+            <button className="btn btn-wide rounded-md ml-8 bg-yellow-800 py-4 my-8">
               Add Review
             </button>
           </form>
