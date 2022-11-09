@@ -1,32 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { img, title, price, description, _id } = service;
   console.log(service);
   return (
-    <div className="flex justify-between container mx-auto my-10">
-      <section className="w-[800px] border-2 flex-2 border-red-500">
-        <img src={img} alt="" />
-        <h1>details section</h1>
+    <div className="grid grid-cols-12 container mx-auto">
+      <section className="col-span-8 border-2 border-red p-5">
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img src={img} alt="" />
+          </PhotoView>
+        </PhotoProvider>
+        <br />
+        <h1 className="text-3xl font-semibold text-white">
+          Service Name : {title}
+        </h1>
+        <br />
+        <p className="text-xl font-semibold text-white ">Price : ${price} </p>
+        <br />
+        <h1 className="text-2xl text-slate-300 font-bold">About {title} </h1>
+        <p>{description}</p>
       </section>
-      <section className=" w-[500px]">
-        <h1>review section</h1>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-          doloremque, porro, cupiditate asperiores sed fuga reprehenderit ad
-          odio earum, ratione suscipit obcaecati accusamus. Veritatis excepturi
-          ex dignissimos molestias, rerum fugiat laborum minus qui distinctio
-          exercitationem quidem expedita quibusdam commodi! Eum adipisci animi
-          accusamus dolorum dolore nisi enim ducimus illum numquam aspernatur,
-          qui excepturi in, a, voluptas praesentium assumenda fuga quidem. Odit
-          quasi praesentium dolorum explicabo suscipit ipsam beatae itaque
-          quaerat molestias possimus expedita, porro, quam quibusdam soluta,
-          perspiciatis modi facere eaque. Rem obcaecati repudiandae laboriosam
-          expedita dolorum illo omnis saepe, laudantium ipsam. Sint officia
-          nobis similique, quisquam reprehenderit pariatur nesciunt!
-        </p>
+      <section className="col-span-4">
+        <div>add reviews</div>
+        <div>
+          <h1>reviews</h1>
+        </div>
       </section>
     </div>
   );
