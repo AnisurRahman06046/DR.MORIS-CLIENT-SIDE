@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServicesCard = ({ service }) => {
   console.log(service);
-  const { img, title, description } = service;
+  const { img, title, description, price, _id } = service;
   return (
     <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
       <img
@@ -14,13 +15,16 @@ const ServicesCard = ({ service }) => {
         <div className="space-y-2">
           <h2 className="text-3xl font-semibold tracking-wide">{title}</h2>
           <p className="dark:text-gray-100">{description.slice(0, 100)}...</p>
+          <p className="text-2xl font-semibold">Price : ${price}</p>
         </div>
-        <button
-          type="button"
-          className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
-        >
-          Details
-        </button>
+        <Link to={`/details/${_id}`}>
+          <button
+            type="button"
+            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
+          >
+            Details
+          </button>
+        </Link>
       </div>
     </div>
   );
