@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddServices from "../../components/Pages/AddServices/AddServices/AddServices";
 import Blog from "../../components/Pages/Blog/Blog/Blog";
 import Error from "../../components/Pages/Error/Error";
 import Home from "../../components/Pages/Home/Home";
 import LogIn from "../../components/Pages/LogIn/LogIn";
+import MyReviews from "../../components/Pages/MyReviews/MyReviews/MyReviews";
 import Register from "../../components/Pages/Register/Register/Register";
 import ServiceDetails from "../../components/Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import Services from "../../components/Pages/Services/Services/Services";
@@ -14,6 +16,8 @@ export const routes = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/login", element: <LogIn></LogIn> },
+      { path: "/myreviews", element: <MyReviews></MyReviews> },
+      { path: "/addservices", element: <AddServices></AddServices> },
       { path: "/register", element: <Register></Register> },
       {
         path: "/services",

@@ -41,7 +41,7 @@ const AddReview = ({ service }) => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex mt-5 flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex flex-col items-center w-full">
         <h2 className="text-3xl font-semibold text-center">
           Your opinion matters!

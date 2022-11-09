@@ -40,11 +40,27 @@ const Header = () => {
             <li>
               <Link to="/login">Log In</Link>
             </li>
+            {user?.uid && (
+              <>
+                <li>
+                  <Link to="/myreviews">My Reviews</Link>
+                </li>
+                <li>
+                  <Link to="/addservices">Add Services</Link>
+                </li>
+              </>
+            )}
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+            {user?.email && (
+              <li>
+                <Link onClick={handleLogOut}>Log Out</Link>
+              </li>
+            )}
           </ul>
         </div>
+
         <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -56,18 +72,33 @@ const Header = () => {
           <li>
             <Link to="/login">Log In</Link>
           </li>
+          {user?.uid && (
+            <>
+              <li>
+                <Link to="/myreviews">My Reviews</Link>
+              </li>
+              <li>
+                <Link to="/addservices">Add Services</Link>
+              </li>
+            </>
+          )}
           <li>
             <Link to="/blog">Blog</Link>
           </li>
+          {user?.email && (
+            <li>
+              <Link onClick={handleLogOut}>Log Out</Link>
+            </li>
+          )}
         </ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         {user?.email && (
           <button onClick={handleLogOut} className="btn ">
             Log Out
           </button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

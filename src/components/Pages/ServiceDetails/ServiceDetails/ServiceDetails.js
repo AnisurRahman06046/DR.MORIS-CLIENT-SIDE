@@ -26,6 +26,7 @@ const ServiceDetails = () => {
   }, [_id, refresh]);
   return (
     <div className="grid grid-cols-12 container mx-auto">
+      {/* Service details section */}
       <section className="col-span-8 border-2 border-red p-5">
         <PhotoProvider>
           <PhotoView src={img}>
@@ -42,13 +43,18 @@ const ServiceDetails = () => {
         <h1 className="text-2xl text-slate-300 font-bold">About {title} </h1>
         <p>{description}</p>
       </section>
-      <section className="col-span-4 border-2 border-red">
+
+      {/* Reviews Section */}
+      <section className="col-span-4 border-2 border-red p-5">
+        <h1 className="text-center text-3xl font-semibold text-yellow-500">
+          Reviews
+        </h1>
         <div className="border-2 border-red-400">
           {reviews.map((review) => (
             <Reviews key={review._id} review={review}></Reviews>
           ))}
         </div>
-        <div className="border-2 border-red-500">
+        <div className=" border-2 border-red-500">
           {user?.uid ? (
             <AddReview service={service}></AddReview>
           ) : (
