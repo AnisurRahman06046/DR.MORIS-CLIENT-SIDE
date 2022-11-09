@@ -5,7 +5,7 @@ import Banner from "./HomePageComponents/Banner/Banner";
 const Home = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("http://localhost:5000/home")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -15,11 +15,13 @@ const Home = () => {
       <h1 className="text-5xl mt-10 mb-10 text-center text-white font-semibold">
         Services
       </h1>
-      <section className="grid grid-cols-3 gap-2 container mx-auto">
+      <section className="grid grid-cols-3 gap-2 lg:container mx-auto sm:content-center">
         {services.map((service) => (
           <ServicesCard key={service._id} service={service}></ServicesCard>
         ))}
-        <button className="btn btn-success btn-wide">See More</button>
+        <button className="btn btn-success lg:btn-wide lg:mx-8 lg:my-8 lg:ml-[500px] sm:mx-4 sm:my-4 sm:btn-wide sm:ml-[200px]">
+          See More
+        </button>
       </section>
     </div>
   );
