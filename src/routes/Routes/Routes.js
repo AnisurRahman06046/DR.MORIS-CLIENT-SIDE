@@ -3,6 +3,7 @@ import Blog from "../../components/Pages/Blog/Blog/Blog";
 import Error from "../../components/Pages/Error/Error";
 import Home from "../../components/Pages/Home/Home";
 import LogIn from "../../components/Pages/LogIn/LogIn";
+import Register from "../../components/Pages/Register/Register/Register";
 import ServiceDetails from "../../components/Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import Services from "../../components/Pages/Services/Services/Services";
 import Main from "../../layout/Main";
@@ -13,6 +14,7 @@ export const routes = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/login", element: <LogIn></LogIn> },
+      { path: "/register", element: <Register></Register> },
       {
         path: "/services",
         element: <Services></Services>,
