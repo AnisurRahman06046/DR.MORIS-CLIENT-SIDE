@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Pages/Blog/Blog/Blog";
+import Error from "../../components/Pages/Error/Error";
 import Home from "../../components/Pages/Home/Home";
 import LogIn from "../../components/Pages/LogIn/LogIn";
 import ServiceDetails from "../../components/Pages/ServiceDetails/ServiceDetails/ServiceDetails";
@@ -17,8 +18,14 @@ export const routes = createBrowserRouter([
         element: <Services></Services>,
         loader: () => fetch("http://localhost:5000/services"),
       },
-      { path: "/details/:id", element: <ServiceDetails></ServiceDetails> },
+      {
+        path: "/details/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/service/${params.id}`),
+      },
       { path: "/blog", element: <Blog></Blog> },
     ],
   },
+  { path: "*", element: <Error></Error> },
 ]);
