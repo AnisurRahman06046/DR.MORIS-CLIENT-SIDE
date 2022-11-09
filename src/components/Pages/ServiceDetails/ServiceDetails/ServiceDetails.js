@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import AddReview from "../../ReviewsSection/AddReview/AddReview/AddReview";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
@@ -25,9 +26,11 @@ const ServiceDetails = () => {
         <h1 className="text-2xl text-slate-300 font-bold">About {title} </h1>
         <p>{description}</p>
       </section>
-      <section className="col-span-4">
-        <div>add reviews</div>
-        <div>
+      <section className="col-span-4 border-2 border-red">
+        <div className="border-2 border-red-400">
+          <AddReview></AddReview>
+        </div>
+        <div className="border-2 border-red-500">
           <h1>reviews</h1>
         </div>
       </section>
