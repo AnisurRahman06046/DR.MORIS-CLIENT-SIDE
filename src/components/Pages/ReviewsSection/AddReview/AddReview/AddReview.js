@@ -12,6 +12,8 @@ const AddReview = ({ service }) => {
     const form = event.target;
     const name = form.name.value;
     const email = user?.email || "unregistered";
+    const photo = user?.photoURL || "unavailable";
+
     const message = form.message.value;
     const usersInfo = {
       service: _id,
@@ -19,6 +21,7 @@ const AddReview = ({ service }) => {
       name: name,
       Email: email,
       Review: message,
+      photo: photo,
     };
     console.log(usersInfo);
     fetch("http://localhost:5000/reviews", {
@@ -29,7 +32,12 @@ const AddReview = ({ service }) => {
       body: JSON.stringify(usersInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          form.reset();
+        }
+      })
       .catch((error) => console.error(error));
   };
   return (
