@@ -19,7 +19,7 @@ const AddReview = ({ service }) => {
       service: _id,
       serviceName: title,
       name: name,
-      Email: email,
+      email: email,
       Review: message,
       photo: photo,
     };
