@@ -3,17 +3,12 @@ import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../customhook/useTitle/useTitle";
 import EmptyReview from "../EmptyReview/EmptyReview";
 import ReviewTable from "../ReviewTable/ReviewTable";
-import { useNavigate } from "react-router-dom";
 
 const MyReviews = () => {
   useTitle("My-Reviews");
   const { user, loading, logOut } = useContext(AuthContext);
   const [myreviews, setMyreviews] = useState([]);
-  const navigate = useNavigate();
-  const handleEditReview = (id) => {
-    console.log(id);
-    navigate(`https://server-green-five.vercel.app/updatereview/${id}`);
-  };
+
   useEffect(() => {
     fetch(`https://server-green-five.vercel.app/review?email=${user?.email}`, {
       headers: {
@@ -60,7 +55,6 @@ const MyReviews = () => {
                   <ReviewTable
                     key={myreview._id}
                     myreview={myreview}
-                    handleEditReview={handleEditReview}
                   ></ReviewTable>
                 ))}
               </tbody>

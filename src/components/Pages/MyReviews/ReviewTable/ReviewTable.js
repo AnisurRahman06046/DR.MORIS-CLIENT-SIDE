@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
-const ReviewTable = ({ myreview, handleEditReview }) => {
+const ReviewTable = ({ myreview }) => {
   const { serviceName, Review, name, _id } = myreview;
 
   const handleDelete = (id) => {
@@ -21,6 +21,9 @@ const ReviewTable = ({ myreview, handleEditReview }) => {
           }
         });
     }
+  };
+  const handleEditReview = (id) => {
+    console.log(id);
   };
   return (
     <tr>
@@ -50,8 +53,11 @@ const ReviewTable = ({ myreview, handleEditReview }) => {
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link>
-                <button className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost">
+              <Link to={`/editreview/${_id}`}>
+                <button
+                  onClick={() => handleEditReview(_id)}
+                  className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost"
+                >
                   Edit Review
                 </button>
               </Link>

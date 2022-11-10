@@ -4,6 +4,7 @@ import Blog from "../../components/Pages/Blog/Blog/Blog";
 import Error from "../../components/Pages/Error/Error";
 import Home from "../../components/Pages/Home/Home";
 import LogIn from "../../components/Pages/LogIn/LogIn";
+import EditReview from "../../components/Pages/MyReviews/EditReview/EditReview";
 import MyReviews from "../../components/Pages/MyReviews/MyReviews/MyReviews";
 
 import Register from "../../components/Pages/Register/Register/Register";
@@ -40,11 +41,18 @@ export const routes = createBrowserRouter([
         element: <Services></Services>,
         loader: () => fetch("https://server-green-five.vercel.app/services"),
       },
+
       {
         path: "/details/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
           fetch(`https://server-green-five.vercel.app/service/${params.id}`),
+      },
+      {
+        path: "/editreview/:id",
+        element: <EditReview></EditReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/editreview/${params.id}`),
       },
 
       { path: "/blog", element: <Blog></Blog> },
