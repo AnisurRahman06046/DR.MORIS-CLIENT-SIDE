@@ -27,9 +27,9 @@ const ServiceDetails = () => {
       });
   }, [_id, refresh]);
   return (
-    <div className="grid grid-cols-12 container mx-auto">
+    <div className="grid lg:grid-cols-12 sm:grid-cols-1  container mx-auto">
       {/* Service details section */}
-      <section className="col-span-8  p-5">
+      <section className="lg:col-span-8 sm:grid-row-reverse p-5">
         <PhotoProvider>
           <PhotoView src={img}>
             <img src={img} alt="" />
@@ -47,7 +47,7 @@ const ServiceDetails = () => {
       </section>
 
       {/* Reviews Section */}
-      <section className="col-span-4  p-5">
+      <section className="lg:col-span-4  p-5">
         <h1 className="text-center text-3xl font-semibold text-yellow-500">
           Reviews
         </h1>

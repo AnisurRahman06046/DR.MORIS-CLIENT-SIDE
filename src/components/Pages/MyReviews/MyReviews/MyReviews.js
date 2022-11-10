@@ -39,8 +39,8 @@ const MyReviews = () => {
     <div>
       {myreviews.length > 0 ? (
         <>
-          <div className="overflow-x-auto w-full p-40  ">
-            <table className="table  w-full">
+          <div className="  lg:w-full p-40  ">
+            <table className="table   lg:w-full">
               <thead>
                 <tr>
                   <th>
