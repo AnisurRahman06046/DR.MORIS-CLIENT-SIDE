@@ -12,10 +12,10 @@ const MyReviews = () => {
   const navigate = useNavigate();
   const handleEditReview = (id) => {
     console.log(id);
-    navigate(`http://localhost:5000//updatereview/${id}`);
+    navigate(`https://server-green-five.vercel.app/updatereview/${id}`);
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`, {
+    fetch(`https://server-green-five.vercel.app/review?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -34,7 +34,7 @@ const MyReviews = () => {
         }
         setMyreviews(data);
       });
-  }, [user?.email, loading]);
+  }, [user?.email, loading, logOut]);
   return (
     <div>
       {myreviews.length > 0 ? (

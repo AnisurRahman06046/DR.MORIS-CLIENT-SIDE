@@ -38,13 +38,13 @@ export const routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://server-green-five.vercel.app/services"),
       },
       {
         path: "/details/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://server-green-five.vercel.app/service/${params.id}`),
       },
 
       { path: "/blog", element: <Blog></Blog> },

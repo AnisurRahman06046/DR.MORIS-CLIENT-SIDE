@@ -19,7 +19,7 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?service=${_id}`)
+    fetch(`https://server-green-five.vercel.app/reviews?service=${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -29,7 +29,7 @@ const ServiceDetails = () => {
   return (
     <div className="grid grid-cols-12 container mx-auto">
       {/* Service details section */}
-      <section className="col-span-8 border-2 border-red p-5">
+      <section className="col-span-8  p-5">
         <PhotoProvider>
           <PhotoView src={img}>
             <img src={img} alt="" />
@@ -47,16 +47,16 @@ const ServiceDetails = () => {
       </section>
 
       {/* Reviews Section */}
-      <section className="col-span-4 border-2 border-red p-5">
+      <section className="col-span-4  p-5">
         <h1 className="text-center text-3xl font-semibold text-yellow-500">
           Reviews
         </h1>
-        <div className="border-2 border-red-400">
+        <div>
           {reviews.map((review) => (
             <Reviews key={review._id} review={review}></Reviews>
           ))}
         </div>
-        <div className=" border-2 border-red-500">
+        <div>
           {user?.uid ? (
             <AddReview service={service}></AddReview>
           ) : (

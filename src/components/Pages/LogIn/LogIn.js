@@ -26,28 +26,12 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        const currentUser = {
-          email: user.email,
-        };
         if (loading) {
           return (
             <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
           );
         }
-        // get jwt token
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            // storing token
-            localStorage.setItem("token", data.token);
-          });
+
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));

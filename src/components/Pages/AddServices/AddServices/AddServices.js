@@ -20,7 +20,7 @@ const AddServices = () => {
       description: description,
     };
     console.log(service);
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://server-green-five.vercel.app/addservice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

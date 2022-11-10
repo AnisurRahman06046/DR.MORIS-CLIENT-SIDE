@@ -9,7 +9,7 @@ const ReviewTable = ({ myreview, handleEditReview }) => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Do you want to delete this review?");
     if (confirm) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://server-green-five.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
