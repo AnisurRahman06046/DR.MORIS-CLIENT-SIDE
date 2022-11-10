@@ -1,9 +1,11 @@
-import React from "react";
-// import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 
-const ReviewTable = ({ myreview }) => {
+const ReviewTable = ({ myreview, handleEditReview }) => {
   const { serviceName, Review, name, _id } = myreview;
+
   const handleDelete = (id) => {
     const confirm = window.confirm("Do you want to delete this review?");
     if (confirm) {
@@ -13,6 +15,7 @@ const ReviewTable = ({ myreview }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+
           if (data.deletedCount) {
             Swal.fire("Review deleted successfully");
           }
@@ -47,9 +50,11 @@ const ReviewTable = ({ myreview }) => {
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <button className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost">
-                Edit Review
-              </button>
+              <Link>
+                <button className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost">
+                  Edit Review
+                </button>
+              </Link>
             </li>
             <li>
               <button

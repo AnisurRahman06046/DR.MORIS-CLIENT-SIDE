@@ -3,14 +3,29 @@ import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../customhook/useTitle/useTitle";
 import EmptyReview from "../EmptyReview/EmptyReview";
 import ReviewTable from "../ReviewTable/ReviewTable";
+import { useNavigate } from "react-router-dom";
 
 const MyReviews = () => {
   useTitle("My-Reviews");
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, logOut } = useContext(AuthContext);
   const [myreviews, setMyreviews] = useState([]);
+  const navigate = useNavigate();
+  const handleEditReview = (id) => {
+    console.log(id);
+    navigate(`http://localhost:5000//updatereview/${id}`);
+  };
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/review?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut();
+        }
+        return res.json();
+      })
       .then((data) => {
         if (loading) {
           return (
@@ -45,6 +60,7 @@ const MyReviews = () => {
                   <ReviewTable
                     key={myreview._id}
                     myreview={myreview}
+                    handleEditReview={handleEditReview}
                   ></ReviewTable>
                 ))}
               </tbody>
