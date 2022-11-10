@@ -52,7 +52,9 @@ export const routes = createBrowserRouter([
         path: "/editreview/:id",
         element: <EditReview></EditReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/editreview/${params.id}`),
+          fetch(
+            ` https://server-green-five.vercel.app/editreview/${params.id}`
+          ),
       },
 
       { path: "/blog", element: <Blog></Blog> },

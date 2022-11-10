@@ -22,13 +22,16 @@ const EditReview = () => {
     };
     console.log(updated);
 
-    fetch(`http://localhost:5000/updatereview/${storedReview._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updated),
-    })
+    fetch(
+      ` https://server-green-five.vercel.app/updatereview/${storedReview._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updated),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
