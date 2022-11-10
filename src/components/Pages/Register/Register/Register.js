@@ -5,7 +5,7 @@ import useTitle from "../../../customhook/useTitle/useTitle";
 
 const Register = () => {
   useTitle("Register");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loading } = useContext(AuthContext);
   const handleRegister = (event) => {
     // console.log("clicked");
     event.preventDefault();
@@ -24,6 +24,11 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        if (loading) {
+          return (
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+          );
+        }
       })
       .catch((error) => console.error(error));
   };

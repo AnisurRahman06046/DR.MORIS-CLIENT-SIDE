@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   useTitle("Log In");
-  const { logIn, googleSignIn } = useContext(AuthContext);
+  const { logIn, googleSignIn, loading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -26,6 +26,11 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        if (loading) {
+          return (
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+          );
+        }
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));

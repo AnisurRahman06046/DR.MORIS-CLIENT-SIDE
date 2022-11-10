@@ -3,6 +3,7 @@ import ServicesCard from "../Shared/ServicesCard/ServicesCard";
 import Banner from "./HomePageComponents/Banner/Banner";
 import { Link } from "react-router-dom";
 import useTitle from "../../customhook/useTitle/useTitle";
+import DiscountBanner from "./HomePageComponents/DiscountBanner/DiscountBanner";
 
 const Home = () => {
   useTitle("Home");
@@ -27,6 +28,9 @@ const Home = () => {
             See More
           </button>
         </Link>
+      </section>
+      <section>
+        <DiscountBanner></DiscountBanner>
       </section>
     </div>
   );

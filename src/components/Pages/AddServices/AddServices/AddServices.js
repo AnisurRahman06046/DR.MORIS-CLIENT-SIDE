@@ -4,7 +4,7 @@ import useTitle from "../../../customhook/useTitle/useTitle";
 
 const AddServices = () => {
   useTitle("Add-Services");
-  const [services, setServices] = useState([]);
+
   const handleAddService = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,7 +39,7 @@ const AddServices = () => {
   };
 
   return (
-    <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
+    <section className="p-6 my-10 dark:bg-gray-800 dark:text-gray-50">
       <form
         onSubmit={handleAddService}
         className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"

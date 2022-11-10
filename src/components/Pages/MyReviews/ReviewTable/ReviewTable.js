@@ -47,12 +47,14 @@ const ReviewTable = ({ myreview }) => {
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <button className="btn btn-ghost">Edit Review</button>
+              <button className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost">
+                Edit Review
+              </button>
             </li>
             <li>
               <button
                 onClick={() => handleDelete(_id)}
-                className="btn btn-ghost"
+                className="btn w-1/2 bg-yellow-700 btn-ghost"
               >
                 Delete
               </button>
