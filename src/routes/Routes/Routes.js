@@ -9,6 +9,7 @@ import Register from "../../components/Pages/Register/Register/Register";
 import ServiceDetails from "../../components/Pages/ServiceDetails/ServiceDetails/ServiceDetails";
 import Services from "../../components/Pages/Services/Services/Services";
 import Main from "../../layout/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -16,8 +17,22 @@ export const routes = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/login", element: <LogIn></LogIn> },
-      { path: "/myreviews", element: <MyReviews></MyReviews> },
-      { path: "/addservices", element: <AddServices></AddServices> },
+      {
+        path: "/myreviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addservices",
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
+      },
       { path: "/register", element: <Register></Register> },
       {
         path: "/services",

@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../customhook/useTitle/useTitle";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   useTitle("Log In");
   const { logIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const handleLogIn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,6 +26,7 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
@@ -28,6 +34,7 @@ const LogIn = () => {
     googleSignIn().then((result) => {
       const user = result.user;
       console.log(user);
+      navigate(from, { replace: true });
     });
   };
   return (

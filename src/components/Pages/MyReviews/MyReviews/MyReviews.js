@@ -30,9 +30,22 @@ const MyReviews = () => {
           </tr>
         </thead>
         <tbody>
-          {myreviews.map((myreview) => (
-            <ReviewTable key={myreview._id} myreview={myreview}></ReviewTable>
-          ))}
+          {myreviews.length > 0 ? (
+            <>
+              {myreviews.map((myreview) => (
+                <ReviewTable
+                  key={myreview._id}
+                  myreview={myreview}
+                ></ReviewTable>
+              ))}
+            </>
+          ) : (
+            <>
+              <p className="text-5xl font-bold text-center">
+                You have not added any review yet.
+              </p>
+            </>
+          )}
         </tbody>
       </table>
     </div>
