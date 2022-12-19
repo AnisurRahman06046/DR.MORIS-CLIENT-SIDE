@@ -5,7 +5,7 @@ https://service-review-client-ceb59.web.app
 
 ## Repo Link
 
-- Client side repo : https://github.com/AnisurRahman06046/Dr.Moris-Clent-Side
+- Client side repo : https://github.com/AnisurRahman06046/Dr.Moris-Client-Side
 
 - server side repo : https://github.com/AnisurRahman06046/Dr.Moris-Server-Side
 
