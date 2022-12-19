@@ -31,11 +31,11 @@ const MyReviews = () => {
       });
   }, [user?.email, loading, logOut]);
   return (
-    <div>
+    <div className="">
       {myreviews.length > 0 ? (
         <>
-          <div className="  lg:w-full p-40  ">
-            <table className="table   lg:w-full">
+          <div className="  lg:w-full min-h-screen  mx-auto p-10 ">
+            <table className="table sm:w-[500px]  lg:w-full p-10">
               <thead>
                 <tr>
                   <th>

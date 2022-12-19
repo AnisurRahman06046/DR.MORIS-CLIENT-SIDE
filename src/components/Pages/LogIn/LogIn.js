@@ -21,11 +21,25 @@ const LogIn = () => {
       email: email,
       password: password,
     };
+    const currentUser = { email: email };
     console.log(user);
     logIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        fetch("https://server-green-five.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            console.log(data);
+          });
         if (loading) {
           return (
             <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>

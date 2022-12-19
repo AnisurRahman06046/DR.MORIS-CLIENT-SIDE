@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../customhook/useTitle/useTitle";
 
 const AddServices = () => {
   useTitle("Add-Services");
-
+  const { user } = useContext(AuthContext);
+  // console.log(user?.email);
   const handleAddService = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,18 +21,21 @@ const AddServices = () => {
       img: img,
       price: price,
       description: description,
+      email: user?.email,
     };
     console.log(service);
     fetch("https://server-green-five.vercel.app/addservice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(service),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
         if (data.acknowledged) {
           Swal.fire("Service added successfully");
           form.reset();

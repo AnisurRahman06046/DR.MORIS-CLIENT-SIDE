@@ -31,7 +31,7 @@ const ReviewTable = ({ myreview }) => {
         <label></label>
       </th>
       <td>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center ">
           <div>
             <div className="font-bold">{serviceName}</div>
             <div className="text-sm opacity-50">Customer Name : {name}</div>
@@ -53,19 +53,18 @@ const ReviewTable = ({ myreview }) => {
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to={`/editreview/${_id}`}>
-                <button
-                  onClick={() => handleEditReview(_id)}
-                  className="btn mb-2 w-1/2 bg-yellow-700 btn-ghost"
-                >
-                  Edit Review
-                </button>
+              <Link
+                to={`/editreview/${_id}`}
+                onClick={() => handleEditReview(_id)}
+                className="btn w-[80px] mb-5 bg-yellow-700 btn-ghost"
+              >
+                Edit
               </Link>
             </li>
             <li>
               <button
                 onClick={() => handleDelete(_id)}
-                className="btn w-1/2 bg-yellow-700 btn-ghost"
+                className="btn w-[80px] bg-yellow-700 btn-ghost"
               >
                 Delete
               </button>

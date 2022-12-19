@@ -37,9 +37,6 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
 
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
             {user?.uid && (
               <>
                 <li>
@@ -53,10 +50,23 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            {user?.email && (
-              <li>
-                <Link onClick={handleLogOut}>Log Out</Link>
-              </li>
+            {user?.emai ? (
+              <>
+                {" "}
+                <li>
+                  <Link onClick={handleLogOut}>Log Out</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li>
+                  <Link to="/login">Log In</Link>
+                </li>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
@@ -69,9 +79,6 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
 
-          <li>
-            <Link to="/login">Log In</Link>
-          </li>
           {user?.uid && (
             <>
               <li>
@@ -85,10 +92,22 @@ const Header = () => {
           <li>
             <Link to="/blog">Blog</Link>
           </li>
-          {user?.email && (
-            <li>
-              <Link onClick={handleLogOut}>Log Out</Link>
-            </li>
+          {user?.email ? (
+            <>
+              <li>
+                <Link onClick={handleLogOut}>Log Out</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              {" "}
+              <li>
+                <Link to="/login">Log In</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+            </>
           )}
         </ul>
       </div>

@@ -19,7 +19,7 @@ const Register = () => {
       password: password,
     };
     console.log(user);
-
+    const currentUser = { email: email };
     createUser(email, password)
       .then((result) => {
         const user = result.user;
