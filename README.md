@@ -1,12 +1,13 @@
 # Livesite Link
 
+Project Name : Dr.Moris
 https://service-review-client-ceb59.web.app
 
 ## Repo Link
 
-- Client side repo : https://github.com/AnisurRahman06046/Mobile-Bazar-Client
+- Client side repo : https://github.com/AnisurRahman06046/Dr.Moris-Clent-Side
 
-- server side repo : https://github.com/AnisurRahman06046/Mobile-Bazar-Server
+- server side repo : https://github.com/AnisurRahman06046/Dr.Moris-Server-Side
 
 ### Technology Used :
 
