@@ -30,12 +30,13 @@ const MyReviews = () => {
         setMyreviews(data);
       });
   }, [user?.email, loading, logOut]);
+
   return (
     <div className="">
       {myreviews.length > 0 ? (
         <>
-          <div className="  lg:w-full min-h-screen  mx-auto p-10 ">
-            <table className="table sm:w-[500px]  lg:w-full p-10">
+          <div className="lg:overflow-hidden  w-full min-h-screen  mx-auto p-10 ">
+            <table className="table w-full p-10">
               <thead>
                 <tr>
                   <th>

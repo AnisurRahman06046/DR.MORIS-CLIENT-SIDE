@@ -19,11 +19,12 @@ const Register = () => {
       password: password,
     };
     console.log(user);
-    const currentUser = { email: email };
+    // const currentUser = { email: email };
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+
         if (loading) {
           return (
             <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
